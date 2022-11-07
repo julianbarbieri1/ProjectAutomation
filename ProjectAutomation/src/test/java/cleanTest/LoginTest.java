@@ -4,16 +4,15 @@ package cleanTest;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import utils.GetProperties;
 
-public class LoginPage extends TestBase{
+public class LoginTest extends TestBase{
     @ParameterizedTest
     @CsvSource(
             {
                     "123juli@123juli.com,123juli",
+                    "julian@gmail.com,julian",
             }
     )
     @DisplayName("verify Login Successfully")
@@ -31,14 +30,22 @@ public class LoginPage extends TestBase{
         mainPage.signInButton.waitClickable();
         mainPage.signInButton.click();
 
-        /*mainPage.loginButton.click();
-        loginModal.emailTextBox.setText(user);
-        loginModal.passwordTextBox.setText(pass);
-        loginModal.loginButton.click();
+        loginPage.logoImg.waitPresence();
+        loginPage.emailTextBox.setText(user);
+        loginPage.passTextBox.setText(pass);
+        loginPage.signInButton.click();
+
+
+        homePage.logoUser.waitClickable();
+        homePage.logoUser.click();
+        Assertions.assertTrue(homePage.logOut.isControlDisplayed(),
+                "ERROR login was not successfully");
+
+        /*
         Assertions.assertTrue(menuSection.logoutButton.isControlDisplayed(),
                 "ERROR login was not successfully");
 */
-        Thread.sleep(3000);
+
     }
 
 

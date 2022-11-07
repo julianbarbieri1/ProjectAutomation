@@ -5,13 +5,17 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import pages.HomePage;
+import pages.LoginPage;
 import pages.MainPage;
 import singletonSession.Session;
 import utils.GetProperties;
 
 public class TestBase {
 
+    public LoginPage loginPage = new LoginPage();
     public MainPage mainPage = new MainPage();
+    public HomePage homePage = new HomePage();
     static String getAlphaNumericString(int n)
     {
 
