@@ -1,13 +1,14 @@
-package cleanTest;
+package cleanTest.LoginTests;
 
 
+import cleanTest.TestBaseTickTick;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-public class LoginTest extends TestBase{
+public class LoginPositiveTestTickTick extends TestBaseTickTick {
     @ParameterizedTest
     @CsvSource(
             {
@@ -20,7 +21,7 @@ public class LoginTest extends TestBase{
     @Owner("Julian")
     @Link("www.jira.com/0001")
     @Issue("www.jira.com/bug001")
-    @Lead("Testttttt")
+    @Lead("Test")
     @Epic("Login")
     @Feature("Authentication")
     @Story("Story login")
@@ -36,9 +37,11 @@ public class LoginTest extends TestBase{
         loginPage.signInButton.click();
 
 
-        homePage.logoUser.waitClickable();
-        homePage.logoUser.click();
-        Assertions.assertTrue(homePage.logOut.isControlDisplayed(),
+        homePageNavbar.logoUser.waitClickable();
+        homePageNavbar.logoUser.click();
+
+        //verifico si el boton del logout existe
+        Assertions.assertTrue(homePageNavbar.logOut.isControlDisplayed(),
                 "ERROR login was not successfully");
 
         /*
