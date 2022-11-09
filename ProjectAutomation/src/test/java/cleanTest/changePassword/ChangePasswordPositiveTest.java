@@ -1,7 +1,9 @@
 package cleanTest.changePassword;
 
 import cleanTest.TestBaseTickTick;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class ChangePasswordPositiveTest extends TestBaseTickTick {
@@ -13,6 +15,12 @@ public class ChangePasswordPositiveTest extends TestBaseTickTick {
 
 
     @Test
+    @DisplayName("Verify if a user can change his password with valid data")
+    @Description("This test will verify if a user can change his password using his password and a new one between 6 and 64 characters")
+    @Owner("Julian Barbieri")
+    @Link("https://nybblegroup.atlassian.net/browse/NAQA-380")
+    @Epic("Change password")
+    @Severity(SeverityLevel.NORMAL)
     public void verifyChangePasswordTest() throws InterruptedException {
 
 
@@ -30,20 +38,17 @@ public class ChangePasswordPositiveTest extends TestBaseTickTick {
         Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pude registrar el usuario");
 
         //GO TO SETTINGS
-        //Thread.sleep(2000);
         homePageNavbar.skipButton.click();
-        //Thread.sleep(2000);
         homePageNavbar.logoUser.click();
-        //Thread.sleep(2000);
         homePageNavbar.settingsButton.click();
 
         //CHANGE PASSWORD
 
         settingsPageLeftSide.accountSecurity.click();
-        settingsPageLeftSide.changePassButton.click();
-        settingsPageLeftSide.currentPassTextbox.addText(pass1);
-        settingsPageLeftSide.newPassTextbox.addText(pass2);
-        settingsPageLeftSide.saveButton.click();
+        changePasswordSection.changePassButton.click();
+        changePasswordSection.currentPassTextbox.addText(pass1);
+        changePasswordSection.newPassTextbox.addText(pass2);
+        changePasswordSection.saveButton.click();
         settingsPageLeftSide.doneButton.click();
 
         //Verfico haciendo logout e iniciando con la nueva contraseña

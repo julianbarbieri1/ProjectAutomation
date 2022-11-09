@@ -1,4 +1,4 @@
-package cleanTest.registerTests;
+package cleanTest.register;
 
 import cleanTest.TestBaseTickTick;
 import io.qameta.allure.*;
@@ -14,19 +14,14 @@ public class RegisterPositiveTestTickTick extends TestBaseTickTick {
     String password = getAlphaNumericString(6);
     String pass64 = getAlphaNumericString(64);
 
-
     @Test
     @Order(1)
-    @DisplayName("Verify register")
-    @Description("this test case is to verify the register using valid credentials with any role")
-    @Owner("Julian")
-    @Link("www.jira.com/doc01")
-    @Issue("www.jira.com/bug0005")
-    @Lead("Testttt")
-    @Epic("Login")
-    @Feature("Authentication")
+    @DisplayName("Verify if the user can register succesfully with valid data.")
+    @Description("This test will verify if the user can register succesfully with valid email, nickname and password.")
+    @Owner("Julian Barbieri")
+    @Link("https://nybblegroup.atlassian.net/browse/NAQA-378")
+    @Epic("Register")
     @Severity(SeverityLevel.CRITICAL)
-    @Story("Story Login")
     public void verifyRegisterTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -46,16 +41,12 @@ public class RegisterPositiveTestTickTick extends TestBaseTickTick {
 
     @Test
     @Order(2)
-    @DisplayName("Verify register")
-    @Description("this test case is to verify the register using valid credentials with any role")
-    @Owner("Julian")
-    @Link("www.jira.com/doc01")
-    @Issue("www.jira.com/bug0005")
-    @Lead("Testttt")
-    @Epic("Login")
-    @Feature("Authentication")
-    @Severity(SeverityLevel.CRITICAL)
-    @Story("Story Login")
+    @DisplayName("Verify if the user can register succesfully with the [Nickname] field empty.")
+    @Description("This test will verify if the user can register succesfully with the [Nickname] field empty.")
+    @Owner("Julian Barbieri")
+    @Link("https://nybblegroup.atlassian.net/browse/NAQA-378")
+    @Epic("Register")
+    @Severity(SeverityLevel.NORMAL)
     public void verifyRegisterEmptyNameTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -74,16 +65,12 @@ public class RegisterPositiveTestTickTick extends TestBaseTickTick {
 
     @Test
     @Order(3)
-    @DisplayName("Verify register")
-    @Description("this test case is to verify the register using valid credentials with any role")
-    @Owner("Julian")
-    @Link("www.jira.com/doc01")
-    @Issue("www.jira.com/bug0005")
-    @Lead("Testttt")
-    @Epic("Login")
-    @Feature("Authentication")
-    @Severity(SeverityLevel.CRITICAL)
-    @Story("Story Login")
+    @DisplayName("Verify if the user can register succesfully with a long password")
+    @Description("This test will verify if the user can register succesfully with a password with 64 characters.")
+    @Owner("Julian Barbieri")
+    @Link("https://nybblegroup.atlassian.net/browse/NAQA-378")
+    @Epic("Register")
+    @Severity(SeverityLevel.NORMAL)
     public void verifyRegisterPass64Test() throws InterruptedException {
 
         //CREATE NEW ACCOUNT

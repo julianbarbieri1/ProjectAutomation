@@ -1,4 +1,4 @@
-package cleanTest.registerTests;
+package cleanTest.register;
 
 import cleanTest.TestBaseTickTick;
 import io.qameta.allure.*;
@@ -18,16 +18,12 @@ public class RegisterNegativeTest extends TestBaseTickTick {
 
     @Test
     @Order(1)
-    @DisplayName("Verify register")
-    @Description("this test case is to verify the register using valid credentials with any role")
-    @Owner("Julian")
-    @Link("www.jira.com/doc01")
-    @Issue("www.jira.com/bug0005")
-    @Lead("Testttt")
-    @Epic("Login")
-    @Feature("Authentication")
-    @Severity(SeverityLevel.CRITICAL)
-    @Story("Story Login")
+    @DisplayName("Verify if the user can NOT register with an empty [Email] field")
+    @Description("This test will verify if the user can NOT register with an empty [Email] field.")
+    @Owner("Julian Barbieri")
+    @Link("https://nybblegroup.atlassian.net/browse/NAQA-378")
+    @Epic("Register")
+    @Severity(SeverityLevel.NORMAL)
     public void verifyRegisterEmptyEmailTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -46,16 +42,12 @@ public class RegisterNegativeTest extends TestBaseTickTick {
 
     @Test
     @Order(2)
-    @DisplayName("Verify register")
-    @Description("this test case is to verify the register using valid credentials with any role")
-    @Owner("Julian")
-    @Link("www.jira.com/doc01")
-    @Issue("www.jira.com/bug0005")
-    @Lead("Testttt")
-    @Epic("Login")
-    @Feature("Authentication")
-    @Severity(SeverityLevel.CRITICAL)
-    @Story("Story Login")
+    @DisplayName("Verify if the user can NOT register with an empty [Password] field.")
+    @Description("This test will verify if the user can NOT register with an empty [Password] field.")
+    @Owner("Julian Barbieri")
+    @Link("https://nybblegroup.atlassian.net/browse/NAQA-378")
+    @Epic("Register")
+    @Severity(SeverityLevel.NORMAL)
     public void verifyRegisterEmptyPasswordTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -73,16 +65,12 @@ public class RegisterNegativeTest extends TestBaseTickTick {
 
     @Test
     @Order(3)
-    @DisplayName("Verify register")
-    @Description("this test case is to verify the register using valid credentials with any role")
-    @Owner("Julian")
-    @Link("www.jira.com/doc01")
-    @Issue("www.jira.com/bug0005")
-    @Lead("Testttt")
-    @Epic("Login")
-    @Feature("Authentication")
-    @Severity(SeverityLevel.CRITICAL)
-    @Story("Story Login")
+    @DisplayName("Verify if the user can NOT register with a short password.")
+    @Description("This test will verify if the user can NOT register with a password length between 1 and 5 characters.")
+    @Owner("Julian Barbieri")
+    @Link("https://nybblegroup.atlassian.net/browse/NAQA-378")
+    @Epic("Register")
+    @Severity(SeverityLevel.NORMAL)
     public void verifyRegisterShortPasswordTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -101,17 +89,13 @@ public class RegisterNegativeTest extends TestBaseTickTick {
     }
 
     @Test
-    @Order(3)
-    @DisplayName("Verify register")
-    @Description("this test case is to verify the register using valid credentials with any role")
-    @Owner("Julian")
-    @Link("www.jira.com/doc01")
-    @Issue("www.jira.com/bug0005")
-    @Lead("Testttt")
-    @Epic("Login")
-    @Feature("Authentication")
-    @Severity(SeverityLevel.CRITICAL)
-    @Story("Story Login")
+    @Order(4)
+    @DisplayName("Verify if the user can NOT register with a long password.")
+    @Description("This test will verify if the user can NOT register with a password with 65 or more characters")
+    @Owner("Julian Barbieri")
+    @Link("https://nybblegroup.atlassian.net/browse/NAQA-378")
+    @Epic("Register")
+    @Severity(SeverityLevel.NORMAL)
     public void verifyRegisterLongPasswordTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT

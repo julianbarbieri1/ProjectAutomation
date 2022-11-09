@@ -1,7 +1,9 @@
 package cleanTest.deleteAccount;
 
 import cleanTest.TestBaseTickTick;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class DeleteNegativeTest extends TestBaseTickTick {
@@ -13,6 +15,12 @@ public class DeleteNegativeTest extends TestBaseTickTick {
     String invalidPassword = getAlphaNumericString(7);
 
     @Test
+    @DisplayName("Verify if a user can NOT delete his account with an invalid password")
+    @Description("This test will verify if a user can NOT delete his account with an invalid password")
+    @Owner("Julian Barbieri")
+    @Link("https://nybblegroup.atlassian.net/browse/NAQA-379")
+    @Epic("Delete account")
+    @Severity(SeverityLevel.NORMAL)
     public void verifyDeleteAccountInvalidPasswordTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -34,7 +42,7 @@ public class DeleteNegativeTest extends TestBaseTickTick {
         Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pude registrar el usuario");
 
         //GO TO SETTINGS Account security
-        homePageLeftSide.skipButton.click();
+        homePageNavbar.skipButton.click();
 
         //click on logo button
         homePageNavbar.logoUser.click();
@@ -55,9 +63,9 @@ public class DeleteNegativeTest extends TestBaseTickTick {
         accountSecuritySection.deleteCheckBoxData.check();
         //click ok button
         accountSecuritySection.deleteConfirmButton.click();
-        accountSecuritySection.incorrectPassword.waitVisibility();
+        accountSecuritySection.incorrectPasswordDelete.waitVisibility();
 
-        Assertions.assertTrue(accountSecuritySection.incorrectPassword.isControlDisplayed(),
+        Assertions.assertTrue(accountSecuritySection.incorrectPasswordDelete.isControlDisplayed(),
                 "ERROR, se pudo eliminar la cuenta con una contraseña distinta");
 
 

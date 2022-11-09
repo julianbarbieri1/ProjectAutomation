@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import singletonSession.Session;
@@ -36,10 +37,15 @@ public class Control {
      *
      */
     public void click(){
-
         this.findControl();
         control.click();
         this.step("Click on "+controlName);
+    }
+    public void rightClick(){
+        this.findControl();
+        Actions action = new Actions(Session.getInstance().getBrowser());
+        action.contextClick(this.control).perform();
+        this.step("Right click on "+controlName);
     }
     public void checkSlectable(By element, WebDriver driver) throws InterruptedException{
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
@@ -93,6 +99,12 @@ public class Control {
     {
         WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.textToBePresentInElementLocated(this.locator, value));
+    }
+
+    public void waitInvisvilityofElement()
+    {
+        WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(this.locator));
     }
 
 }

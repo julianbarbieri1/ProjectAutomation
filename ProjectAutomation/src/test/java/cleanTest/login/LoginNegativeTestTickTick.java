@@ -1,4 +1,4 @@
-package cleanTest.LoginTests;
+package cleanTest.login;
 
 import cleanTest.TestBaseTickTick;
 import io.qameta.allure.*;
@@ -11,16 +11,12 @@ public class LoginNegativeTestTickTick extends TestBaseTickTick {
 
     @Test
     @Order(1)
-    @DisplayName("Verify login")
-    @Description("this test case is to verify the login using valid credentials with any role")
-    @Owner("Eynar")
-    @Link("www.jira.com/doc01")
-    @Issue("www.jira.com/bug0005")
-    @Lead("Testttt")
+    @DisplayName("Verify if the user can NOT register with an empty [Password] field.")
+    @Description("This test will verify if the user can NOT register with an empty [Password] field.")
+    @Owner("Julian Barbieri")
+    @Link("https://nybblegroup.atlassian.net/browse/NAQA-377")
     @Epic("Login")
-    @Feature("Authentication")
-    @Severity(SeverityLevel.CRITICAL)
-    @Story("Story Login")
+    @Severity(SeverityLevel.NORMAL)
     public void verifyLoginEmptyPass(){
 
         String user = "123juli@123juli.com";
@@ -38,16 +34,12 @@ public class LoginNegativeTestTickTick extends TestBaseTickTick {
 
     @Test
     @Order(2)
-    @DisplayName("Verify login")
-    @Description("this test case is to verify the login using valid credentials with any role")
-    @Owner("Eynar")
-    @Link("www.jira.com/doc01")
-    @Issue("www.jira.com/bug0005")
-    @Lead("Testttt")
+    @DisplayName("Verify if a user can NOT login with an empty email field")
+    @Description("This test will Verify if a user can NOT login with an empty password field")
+    @Owner("Julian Barbieri")
+    @Link("https://nybblegroup.atlassian.net/browse/NAQA-377")
     @Epic("Login")
-    @Feature("Authentication")
-    @Severity(SeverityLevel.CRITICAL)
-    @Story("Story Login")
+    @Severity(SeverityLevel.NORMAL)
     public void verifyLoginEmptyEmail(){
 
         String pass = "Julian";
@@ -65,16 +57,12 @@ public class LoginNegativeTestTickTick extends TestBaseTickTick {
 
     @Test
     @Order(3)
-    @DisplayName("Verify login")
-    @Description("this test case is to verify the login using valid credentials with any role")
-    @Owner("Eynar")
-    @Link("www.jira.com/doc01")
-    @Issue("www.jira.com/bug0005")
-    @Lead("Testttt")
+    @DisplayName("Verify if a user can NOT login with both fields empty")
+    @Description("This test will verify if a user can NOT login with an empty email field and empty password field")
+    @Owner("Julian Barbieri")
+    @Link("https://nybblegroup.atlassian.net/browse/NAQA-377")
     @Epic("Login")
-    @Feature("Authentication")
-    @Severity(SeverityLevel.CRITICAL)
-    @Story("Story Login")
+    @Severity(SeverityLevel.NORMAL)
     public void verifyLoginEmptyFields(){
         mainPage.signInButton.waitClickable();
         mainPage.signInButton.click();

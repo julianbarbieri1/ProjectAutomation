@@ -1,7 +1,10 @@
 package cleanTest.deleteAccount;
 
 import cleanTest.TestBaseTickTick;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import pages.HomePageNavbar;
 
@@ -13,6 +16,12 @@ public class DeleteAccountValidTest extends TestBaseTickTick {
     String password = getAlphaNumericString(6);
 
     @Test
+    @DisplayName("Verify if a user can delete his account with valid data")
+    @Description("This test will verify if a user can delete his account with the logged account password and checking both checkboxes")
+    @Owner("Julian Barbieri")
+    @Link("https://nybblegroup.atlassian.net/browse/NAQA-379")
+    @Epic("Delete account")
+    @Severity(SeverityLevel.CRITICAL)
     public void verifyDeleteAccountTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -34,7 +43,7 @@ public class DeleteAccountValidTest extends TestBaseTickTick {
         Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pude registrar el usuario");
 
         //GO TO SETTINGS Account security
-        homePageLeftSide.skipButton.click();
+        homePageNavbar.skipButton.click();
 
         //click on logo button
         homePageNavbar.logoUser.click();

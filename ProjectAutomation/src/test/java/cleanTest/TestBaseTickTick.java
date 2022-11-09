@@ -14,11 +14,15 @@ import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnviro
 @ExtendWith(TestResultExtension.class)
 public class TestBaseTickTick {
 
+    public ThemeSection themeSection = new ThemeSection();
+    public TaskSection taskSection = new TaskSection();
+    public HabitSection habitSection = new HabitSection();
     public RegisterPage registerPage = new RegisterPage();
     public LoginPage loginPage = new LoginPage();
     public MainPage mainPage = new MainPage();
     public HomePageNavbar homePageNavbar = new HomePageNavbar();
 
+    public ChangePasswordSection changePasswordSection = new ChangePasswordSection();
     public SettingsPageLeftSide settingsPageLeftSide = new SettingsPageLeftSide();
 
     public AccountSecuritySection accountSecuritySection = new AccountSecuritySection();

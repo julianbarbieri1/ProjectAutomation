@@ -7,16 +7,15 @@ import org.openqa.selenium.By;
 
 public class SettingsPageLeftSide {
 
-    public Button doneButton = new Button(By.xpath("//button[text()='Done']"));
-    public Button accountSecurity = new Button(By.xpath("//span[text()='Account and Security']"));
-    public Label settingsLabel = new Label(By.xpath("//h5[@class='line-left text-[28px] font-medium leading-[40px]']"));
+    public Button doneButton = new Button(By.xpath("//button[text()='Done']"),
+            "[Done] button in the settings page");
+    public Button accountSecurity = new Button(By.xpath("//span[text()='Account and Security']"),
+            "[Account and Security] button in the settings page");
 
-    public Button changePassButton = new Button(By.xpath("//a[text()='Change Password']"));
+    public Label settingsLabel = new Label(By.xpath("//h5[@class='line-left text-[28px] font-medium leading-[40px]']"),
+            "[Settings] label in the settings page");
 
-    public TextBox currentPassTextbox = new TextBox(By.xpath("//div[@style='display: block;']//input[@placeholder='Current Password']"));
-
-    public TextBox newPassTextbox = new TextBox(By.xpath("//div[@style='display: block;']//input[@placeholder='New password']"));
-
-    public Button saveButton = new Button(By.xpath("//div[@class='btns leading-none']//button[text()='Save']"));
+    public Button themeButton = new Button(By.xpath("//a[@href='#settings/theme']"),
+            "[Theme] button in the settings page");
 
 }
