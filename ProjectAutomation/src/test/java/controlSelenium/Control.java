@@ -71,12 +71,12 @@ public class Control {
 
 
     public void waitVisibility(){
-        WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(this.locator));
     }
 
     public void waitPresence(){
-        WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(15));
         wait.until(ExpectedConditions.presenceOfElementLocated(this.locator));
     }
     public void waitClickable()

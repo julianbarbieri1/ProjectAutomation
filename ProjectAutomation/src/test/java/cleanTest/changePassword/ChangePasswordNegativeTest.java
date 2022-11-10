@@ -2,10 +2,8 @@ package cleanTest.changePassword;
 
 import cleanTest.TestBaseTickTick;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import utils.GetProperties;
 
 public class ChangePasswordNegativeTest extends TestBaseTickTick {
 
@@ -24,6 +22,8 @@ public class ChangePasswordNegativeTest extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-380")
     @Epic("Change password")
     @Severity(SeverityLevel.NORMAL)
+    @Tag("ChangePassword")
+    @Feature("Authentication")
     public void verifyChangeShortPasswordTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -37,9 +37,10 @@ public class ChangePasswordNegativeTest extends TestBaseTickTick {
         //verificacion
 
         homePageNavbar.logoUser.waitVisibility();
-        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pude registrar el usuario");
+        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, could not register the user");
 
         //GO TO SETTINGS
+        homePageNavbar.skipButton.waitClickable();
         homePageNavbar.skipButton.click();
         homePageNavbar.logoUser.click();
         homePageNavbar.settingsButton.click();
@@ -54,7 +55,7 @@ public class ChangePasswordNegativeTest extends TestBaseTickTick {
         changePasswordSection.saveButton.click();
 
         Assertions.assertTrue(changePasswordSection.incorrectPasswordChange.isControlDisplayed(),
-                "ERROR, se pudo cambiar a una contraseña mas corta");
+                "ERROR, user could change to a short password");
 
     }
 
@@ -67,6 +68,8 @@ public class ChangePasswordNegativeTest extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-380")
     @Epic("Change password")
     @Severity(SeverityLevel.NORMAL)
+    @Tag("ChangePassword")
+    @Feature("Authentication")
     public void verifyChangeLongPasswordTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -80,9 +83,10 @@ public class ChangePasswordNegativeTest extends TestBaseTickTick {
         //verificacion
 
         homePageNavbar.logoUser.waitVisibility();
-        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pude registrar el usuario");
+        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, ERROR, could not register the user");
 
         //GO TO SETTINGS
+        //settingsPageLeftSide.accountSecurity.waitClickable();
         homePageNavbar.skipButton.click();
         homePageNavbar.logoUser.click();
         homePageNavbar.settingsButton.click();
@@ -97,7 +101,7 @@ public class ChangePasswordNegativeTest extends TestBaseTickTick {
         changePasswordSection.saveButton.click();
 
         Assertions.assertTrue(changePasswordSection.incorrectPasswordChange.isControlDisplayed(),
-                "ERROR, se pudo cambiar a una contraseña mas larga");
+                "ERROR, user could change to a long password");
 
     }
 
@@ -109,6 +113,8 @@ public class ChangePasswordNegativeTest extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-380")
     @Epic("Change password")
     @Severity(SeverityLevel.NORMAL)
+    @Feature("Authentication")
+    @Tag("ChangePassword")
     public void verifyChangeEmptyPasswordTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -122,7 +128,7 @@ public class ChangePasswordNegativeTest extends TestBaseTickTick {
         //verificacion
 
         homePageNavbar.logoUser.waitVisibility();
-        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pude registrar el usuario");
+        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, could not register the user");
 
         //GO TO SETTINGS
         homePageNavbar.skipButton.click();
@@ -137,7 +143,7 @@ public class ChangePasswordNegativeTest extends TestBaseTickTick {
         changePasswordSection.currentPassTextbox.addText(pass1);
 
         Assertions.assertTrue(changePasswordSection.saveDisabledButton.isControlDisplayed(),
-                "ERROR, se pudo cambiar a una contraseña sin haber ingresado una nueva");
+                "ERROR, user could change to a password without having entered a new one");
 
     }
 

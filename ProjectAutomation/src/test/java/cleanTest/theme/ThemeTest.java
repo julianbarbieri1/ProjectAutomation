@@ -2,10 +2,7 @@ package cleanTest.theme;
 
 import cleanTest.TestBaseTickTick;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class ThemeTest extends TestBaseTickTick {
 
@@ -17,9 +14,11 @@ public class ThemeTest extends TestBaseTickTick {
     @DisplayName("Verify if user can change the theme")
     @Description("Verify if user can change the theme in the settings section")
     @Owner("Julian Barbieri")
-    @Link("")
+    @Link("https://nybblegroup.atlassian.net/browse/NAQA-384")
     @Epic("Theme")
     @Severity(SeverityLevel.MINOR)
+    @Tag("Theme")
+    @Feature("Authentication")
     public void verifyChangeThemeTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -33,7 +32,7 @@ public class ThemeTest extends TestBaseTickTick {
 
         homePageNavbar.logoUser.waitPresence();
         homePageNavbar.logoUser.waitClickable();
-        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pude registrar el usuario");
+        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, the user could not be registered");
 
         //GO TO SETTINGS
         homePageNavbar.skipButton.click();

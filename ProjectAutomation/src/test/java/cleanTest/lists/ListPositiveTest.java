@@ -2,10 +2,7 @@ package cleanTest.lists;
 
 import cleanTest.TestBaseTickTick;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class ListPositiveTest extends TestBaseTickTick {
 
@@ -22,6 +19,8 @@ public class ListPositiveTest extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-383")
     @Epic("Lists")
     @Severity(SeverityLevel.NORMAL)
+    @Tag("List")
+    @Feature("Authentication")
     public void verifyCreatListTest(){
 
 
@@ -64,6 +63,8 @@ public class ListPositiveTest extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-383")
     @Epic("Lists")
     @Severity(SeverityLevel.MINOR)
+    @Tag("List")
+    @Feature("Authentication")
     public void verifyCreatListNoteTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -109,6 +110,8 @@ public class ListPositiveTest extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-383")
     @Epic("Lists")
     @Severity(SeverityLevel.NORMAL)
+    @Tag("List")
+    @Feature("Authentication")
     public void verifyDeleteListTest(){
 
 
@@ -122,7 +125,7 @@ public class ListPositiveTest extends TestBaseTickTick {
         //verificacion
 
         homePageNavbar.logoUser.waitVisibility();
-        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pudo registrar el usuario");
+        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, the user could not be registered");
 
         //CREATE LIST
         homePageNavbar.skipButton.click();
@@ -139,7 +142,7 @@ public class ListPositiveTest extends TestBaseTickTick {
 
         //verifico
 
-        Assertions.assertTrue(taskSection.listSearch(listName).isControlDisplayed(), "ERROR, no se pudo crear la lista");
+        Assertions.assertTrue(taskSection.listSearch(listName).isControlDisplayed(), "ERROR, list could not be created");
 
         //DELETE
 
@@ -154,7 +157,7 @@ public class ListPositiveTest extends TestBaseTickTick {
 
         //verifico
 
-        Assertions.assertFalse(taskSection.listSearch(listName).isControlDisplayed(),"ERROR, no se pudo eliminar la lista");
+        Assertions.assertFalse(taskSection.listSearch(listName).isControlDisplayed(),"ERROR, could not delete the list");
     }
 
 }

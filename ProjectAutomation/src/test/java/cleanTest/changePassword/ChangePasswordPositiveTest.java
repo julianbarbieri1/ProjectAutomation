@@ -4,6 +4,7 @@ import cleanTest.TestBaseTickTick;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class ChangePasswordPositiveTest extends TestBaseTickTick {
@@ -21,6 +22,8 @@ public class ChangePasswordPositiveTest extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-380")
     @Epic("Change password")
     @Severity(SeverityLevel.NORMAL)
+    @Tag("ChangePassword")
+    @Feature("Authentication")
     public void verifyChangePasswordTest() throws InterruptedException {
 
 
@@ -35,7 +38,7 @@ public class ChangePasswordPositiveTest extends TestBaseTickTick {
         //verificacion
 
         homePageNavbar.logoUser.waitVisibility();
-        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pude registrar el usuario");
+        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, could not register the user");
 
         //GO TO SETTINGS
         homePageNavbar.skipButton.click();
@@ -56,7 +59,7 @@ public class ChangePasswordPositiveTest extends TestBaseTickTick {
         homePageNavbar.logoUser.click();
         homePageNavbar.logOut.click();
 
-        Assertions.assertFalse(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pude cerrar sesion");
+        Assertions.assertFalse(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, could not close session");
 
         mainPage.signInButton.click();
 
@@ -65,7 +68,7 @@ public class ChangePasswordPositiveTest extends TestBaseTickTick {
         loginPage.signInButton.click();
 
         homePageNavbar.logoUser.waitClickable();
-        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pude iniciar sesion");
+        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, user could not login");
 
 
     }

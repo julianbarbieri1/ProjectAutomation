@@ -5,6 +5,7 @@ import cleanTest.TestBaseTickTick;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import utils.GetProperties;
 
@@ -17,6 +18,8 @@ public class LoginPositiveTestTickTick extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-377")
     @Epic("Login")
     @Severity(SeverityLevel.CRITICAL)
+    @Tag("Login")
+    @Feature("Authentication")
     public void verifyLoginSuccessfully() throws InterruptedException {
 
         mainPage.signInButton.waitClickable();

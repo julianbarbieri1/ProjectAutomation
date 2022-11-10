@@ -2,10 +2,7 @@ package cleanTest.logout;
 
 import cleanTest.TestBaseTickTick;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class LogoutTest extends TestBaseTickTick {
 
@@ -19,6 +16,8 @@ public class LogoutTest extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-382")
     @Epic("Logout")
     @Severity(SeverityLevel.CRITICAL)
+    @Tag("Logout")
+    @Feature("Authentication")
     public void verifyLogoutTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -31,7 +30,7 @@ public class LogoutTest extends TestBaseTickTick {
         //verificacion
 
         homePageNavbar.logoUser.waitVisibility();
-        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pudo registrar el usuario");
+        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, the user could not be registered");
 
         //LOGOUT
 
@@ -43,7 +42,7 @@ public class LogoutTest extends TestBaseTickTick {
 
         //verifico
 
-        Assertions.assertFalse(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se puede cerrar sesion");
+        Assertions.assertFalse(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, can not close session");
     }
 
 }

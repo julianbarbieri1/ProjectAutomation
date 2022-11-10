@@ -2,10 +2,7 @@ package cleanTest.register;
 
 import cleanTest.TestBaseTickTick;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class RegisterPositiveTestTickTick extends TestBaseTickTick {
 
@@ -22,6 +19,8 @@ public class RegisterPositiveTestTickTick extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-378")
     @Epic("Register")
     @Severity(SeverityLevel.CRITICAL)
+    @Tag("Register")
+    @Feature("Authentication")
     public void verifyRegisterTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -35,7 +34,7 @@ public class RegisterPositiveTestTickTick extends TestBaseTickTick {
         //verificacion
 
         homePageNavbar.logoUser.waitVisibility();
-        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pudo registrar el usuario");
+        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, the user could not be registered");
 
     }
 
@@ -47,6 +46,8 @@ public class RegisterPositiveTestTickTick extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-378")
     @Epic("Register")
     @Severity(SeverityLevel.NORMAL)
+    @Tag("Register")
+    @Feature("Authentication")
     public void verifyRegisterEmptyNameTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -59,7 +60,7 @@ public class RegisterPositiveTestTickTick extends TestBaseTickTick {
         //verificacion
 
         homePageNavbar.logoUser.waitVisibility();
-        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pudo registrar el usuario");
+        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, the user could not be registered");
 
     }
 
@@ -71,6 +72,8 @@ public class RegisterPositiveTestTickTick extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-378")
     @Epic("Register")
     @Severity(SeverityLevel.NORMAL)
+    @Tag("Register")
+    @Feature("Authentication")
     public void verifyRegisterPass64Test() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -83,7 +86,7 @@ public class RegisterPositiveTestTickTick extends TestBaseTickTick {
         //verificacion
 
         homePageNavbar.logoUser.waitVisibility();
-        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pudo registrar el usuario");
+        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, the user could not be registered");
 
     }
 

@@ -1,27 +1,27 @@
-package cleanTest.deleteAccount;
+package cleanTest.habit.deleteAccount;
 
 import cleanTest.TestBaseTickTick;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import pages.HomePageNavbar;
 
-public class DeleteNegativeTest extends TestBaseTickTick {
+public class DeleteAccountValidTest extends TestBaseTickTick {
+
 
     String name = "Julian";
     String user = getAlphaNumericString(6) + "@gmail.com";
     String password = getAlphaNumericString(6);
 
-    String invalidPassword = getAlphaNumericString(7);
-
     @Test
-    @DisplayName("Verify if a user can NOT delete his account with an invalid password")
-    @Description("This test will verify if a user can NOT delete his account with an invalid password")
+    @DisplayName("Verify if a user can delete his account with valid data")
+    @Description("This test will verify if a user can delete his account with the logged account password and checking both checkboxes")
     @Owner("Julian Barbieri")
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-379")
     @Epic("Delete account")
-    @Severity(SeverityLevel.NORMAL)
-    public void verifyDeleteAccountInvalidPasswordTest() throws InterruptedException {
+    @Severity(SeverityLevel.CRITICAL)
+    @Tag("DeleteAccount")
+    @Feature("Authentication")
+    public void verifyDeleteAccountTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
         mainPage.signUpForFreeButton.click();
@@ -39,7 +39,7 @@ public class DeleteNegativeTest extends TestBaseTickTick {
         //verificacion si el logo user esta desplegado
 
         homePageNavbar.logoUser.waitVisibility();
-        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pude registrar el usuario");
+        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, could not register the user");
 
         //GO TO SETTINGS Account security
         homePageNavbar.skipButton.click();
@@ -57,16 +57,25 @@ public class DeleteNegativeTest extends TestBaseTickTick {
         //click delete button
         accountSecuritySection.deleteButton.click();
         //set password
-        accountSecuritySection.deletePasswordTextBox.addText(invalidPassword);
+        accountSecuritySection.deletePasswordTextBox.addText(password);
         //check checkboxes
         accountSecuritySection.deleteCheckBoxAccount.check();
         accountSecuritySection.deleteCheckBoxData.check();
         //click ok button
         accountSecuritySection.deleteConfirmButton.click();
-        accountSecuritySection.incorrectPasswordDelete.waitVisibility();
 
-        Assertions.assertTrue(accountSecuritySection.incorrectPasswordDelete.isControlDisplayed(),
-                "ERROR, se pudo eliminar la cuenta con una contraseña distinta");
+
+        //INICIO SESION
+        //click sign in button
+        mainPage.signInButton.click();
+        //set email
+        loginPage.emailTextBox.addText(user);
+        //set password
+        loginPage.passTextBox.addText(password);
+        //click sign in button
+        loginPage.signInButton.click();
+
+        Assertions.assertFalse(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, could not delete the account");
 
 
     }

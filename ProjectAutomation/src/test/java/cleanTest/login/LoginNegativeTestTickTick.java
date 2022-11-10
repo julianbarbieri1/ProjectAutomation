@@ -2,10 +2,7 @@ package cleanTest.login;
 
 import cleanTest.TestBaseTickTick;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class LoginNegativeTestTickTick extends TestBaseTickTick {
 
@@ -17,6 +14,8 @@ public class LoginNegativeTestTickTick extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-377")
     @Epic("Login")
     @Severity(SeverityLevel.NORMAL)
+    @Tag("Login")
+    @Feature("Authentication")
     public void verifyLoginEmptyPass(){
 
         String user = "123juli@123juli.com";
@@ -40,6 +39,8 @@ public class LoginNegativeTestTickTick extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-377")
     @Epic("Login")
     @Severity(SeverityLevel.NORMAL)
+    @Tag("Login")
+    @Feature("Authentication")
     public void verifyLoginEmptyEmail(){
 
         String pass = "Julian";
@@ -63,6 +64,8 @@ public class LoginNegativeTestTickTick extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-377")
     @Epic("Login")
     @Severity(SeverityLevel.NORMAL)
+    @Tag("Login")
+    @Feature("Authentication")
     public void verifyLoginEmptyFields(){
         mainPage.signInButton.waitClickable();
         mainPage.signInButton.click();

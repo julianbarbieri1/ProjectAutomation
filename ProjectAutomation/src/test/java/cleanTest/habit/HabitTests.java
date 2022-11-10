@@ -2,10 +2,7 @@ package cleanTest.habit;
 
 import cleanTest.TestBaseTickTick;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class HabitTests extends TestBaseTickTick {
 
@@ -22,6 +19,8 @@ public class HabitTests extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-381")
     @Epic("Habit")
     @Severity(SeverityLevel.NORMAL)
+    @Tag("Habit")
+    @Feature("Authentication")
     public void verifyCreateHabit(){
 
         //CREATE NEW ACCOUNT
@@ -59,6 +58,8 @@ public class HabitTests extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-381")
     @Epic("Habit")
     @Severity(SeverityLevel.NORMAL)
+    @Tag("Habit")
+    @Feature("Authentication")
     public void verifyCreateHabitEmptyName(){
 
         //CREATE NEW ACCOUNT
@@ -77,15 +78,15 @@ public class HabitTests extends TestBaseTickTick {
         //go to habits
         homePageNavbar.skipButton.click();
         homePageNavbar.habitButton.click();
-        int amountHabitsBefore = habitSection.habits.findControls();
+        int amountHabitsBefore = habitSection.habits.findControls()-1;
 
         //create habit
         habitSection.addHabit.waitClickable();
         habitSection.addHabit.click();
         habitSection.saveButton.click();
-        int amountHabitsAfter = habitSection.habits.findControls();
+        int amountHabitsAfter = habitSection.habits.findControls()-1;
 
-        Assertions.assertEquals(amountHabitsBefore,amountHabitsAfter,"ERROR, el habit fue creado");
+        Assertions.assertEquals(amountHabitsBefore,amountHabitsAfter,"ERROR, the habit was created");
 
 
     }
@@ -98,6 +99,8 @@ public class HabitTests extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-381")
     @Epic("Habit")
     @Severity(SeverityLevel.NORMAL)
+    @Feature("Authentication")
+    @Tag("Habit")
     public void verifyDeleteHabit() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -110,7 +113,7 @@ public class HabitTests extends TestBaseTickTick {
 
         //verificacion
         homePageNavbar.logoUser.waitVisibility();
-        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, no se pude registrar el usuario");
+        Assertions.assertTrue(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, could not register the user");
 
         //go to habits
         homePageNavbar.skipButton.click();
@@ -122,7 +125,7 @@ public class HabitTests extends TestBaseTickTick {
         habitSection.addHabitTextBox.addText(habit);
         habitSection.saveButton.click();
 
-        Assertions.assertTrue(habitSection.habitSearch(habit).isControlDisplayed(), "ERROR, no se pudo crear el habito");
+        Assertions.assertTrue(habitSection.habitSearch(habit).isControlDisplayed(), "ERROR, habit could not be created");
 
 
         //delete habit
@@ -134,7 +137,7 @@ public class HabitTests extends TestBaseTickTick {
         habitSection.deleteHabitConfirmationButton.waitClickable();
         habitSection.deleteHabitConfirmationButton.click();
 
-        Assertions.assertFalse(habitSection.habitSearch(habit).isControlDisplayed(),"ERROR, el habit no fue eliminado");
+        Assertions.assertFalse(habitSection.habitSearch(habit).isControlDisplayed(),"ERROR, habit was not deleted");
 
     }
 

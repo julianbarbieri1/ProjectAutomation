@@ -2,10 +2,7 @@ package cleanTest.register;
 
 import cleanTest.TestBaseTickTick;
 import io.qameta.allure.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class RegisterNegativeTest extends TestBaseTickTick {
 
@@ -24,6 +21,8 @@ public class RegisterNegativeTest extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-378")
     @Epic("Register")
     @Severity(SeverityLevel.NORMAL)
+    @Tag("Register")
+    @Feature("Authentication")
     public void verifyRegisterEmptyEmailTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -35,7 +34,8 @@ public class RegisterNegativeTest extends TestBaseTickTick {
 
         //verificacion
 
-        Assertions.assertFalse(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, se pudo registrar el usuario sin ingresar un mail");
+        Assertions.assertFalse(homePageNavbar.logoUser.isControlDisplayed(),
+                "ERROR, the user could be registered without entering an email");
 
     }
 
@@ -48,6 +48,8 @@ public class RegisterNegativeTest extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-378")
     @Epic("Register")
     @Severity(SeverityLevel.NORMAL)
+    @Tag("Register")
+    @Feature("Authentication")
     public void verifyRegisterEmptyPasswordTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -59,7 +61,8 @@ public class RegisterNegativeTest extends TestBaseTickTick {
 
         //verificacion
 
-        Assertions.assertFalse(homePageNavbar.logoUser.isControlDisplayed(), "ERROR, se pudo registrar el usuario sin ingresar una contraseña");
+        Assertions.assertFalse(homePageNavbar.logoUser.isControlDisplayed(),
+                "ERROR, the user could be registered without entering a password");
 
     }
 
@@ -71,6 +74,8 @@ public class RegisterNegativeTest extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-378")
     @Epic("Register")
     @Severity(SeverityLevel.NORMAL)
+    @Tag("Register")
+    @Feature("Authentication")
     public void verifyRegisterShortPasswordTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -84,7 +89,7 @@ public class RegisterNegativeTest extends TestBaseTickTick {
         //verificacion
 
         Assertions.assertFalse(homePageNavbar.logoUser.isControlDisplayed(),
-                "ERROR, se pudo registrar el usuario con una contraseña muy corta");
+                "ERROR, the user could be registered with a very short password");
 
     }
 
@@ -96,6 +101,8 @@ public class RegisterNegativeTest extends TestBaseTickTick {
     @Link("https://nybblegroup.atlassian.net/browse/NAQA-378")
     @Epic("Register")
     @Severity(SeverityLevel.NORMAL)
+    @Tag("Register")
+    @Feature("Authentication")
     public void verifyRegisterLongPasswordTest() throws InterruptedException {
 
         //CREATE NEW ACCOUNT
@@ -109,7 +116,7 @@ public class RegisterNegativeTest extends TestBaseTickTick {
         //verificacion
 
         Assertions.assertFalse(homePageNavbar.logoUser.isControlDisplayed(),
-                "ERROR, se pudo registrar el usuario con una contraseña muy larga");
+                "ERROR, the user could be registered with a very long password");
 
     }
 }
