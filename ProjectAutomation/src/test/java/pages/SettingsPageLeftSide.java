@@ -12,9 +12,6 @@ public class SettingsPageLeftSide {
     public Button accountSecurity = new Button(By.xpath("//span[text()='Account and Security']"),
             "[Account and Security] button in the settings page");
 
-    public Label settingsLabel = new Label(By.xpath("//h5[@class='line-left text-[28px] font-medium leading-[40px]']"),
-            "[Settings] label in the settings page");
-
     public Button themeButton = new Button(By.xpath("//a[@href='#settings/theme']"),
             "[Theme] button in the settings page");
 

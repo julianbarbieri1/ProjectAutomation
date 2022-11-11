@@ -70,10 +70,5 @@ public class TestBaseTickTick {
         Session.getInstance().closeBrowser();
     }
 
-    @Attachment(value = "screenshot",type = "image/png")
-    public static byte[] attach(){
-        // tomar captura de pantalla - adjuntarlo en el reporte
-        return ((TakesScreenshot) Session.getInstance().getBrowser()).getScreenshotAs(OutputType.BYTES);
-    }
 
 }

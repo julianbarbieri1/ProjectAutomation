@@ -15,9 +15,7 @@ public class Control {
     protected By locator;
     protected WebElement control;
     protected String controlName; // reflection
-    public Control (By locator){
-        this.locator=locator;
-    }
+
     @Step("{0}")
     public void step(String action){}
 
@@ -84,15 +82,6 @@ public class Control {
         // todo --> factory para instanciar el wait una sola vez
         WebDriverWait wait = new WebDriverWait(Session.getInstance().getBrowser(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.elementToBeClickable(this.locator));
-    }
-    public void waitControl(By locator, int timeOut) throws InterruptedException {
-        Label test = new Label(this.locator); //subject
-        int i = 0;
-        do {
-            Thread.sleep(1000);
-            i++;
-            this.control.click(); //refresh
-        } while (!test.isControlDisplayed() || i <= timeOut);
     }
 
     public void waitTextToBePresent(String value)
