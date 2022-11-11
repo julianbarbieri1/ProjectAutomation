@@ -11,11 +11,17 @@ Gradle version 7.5.1
 
 git version 2.37.3.windows.1 to clone the repository
 
+Browsers: Chrome, Edge, Firefox, Docker
+
+
 GRADLE COMMANDS:
 
 All Tests cases = gradle clean test -PenvFile=qa.properties
 
-TAGS Tests cases: gradle clean -x test -PenvFile=qa.properties tags -PtestSuite=@tagname
+Class test cases = gradle test -PenvFile=qa.properties --tests @class
+
+TAGS Tests cases = gradle clean -x test -PenvFile=qa.properties tags -PtestSuite=@tagname
+
 
 COMMANDS REPORTS: 
 
