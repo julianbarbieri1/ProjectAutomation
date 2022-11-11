@@ -1,4 +1,4 @@
-package cleanTest.habit.deleteAccount;
+package cleanTest.deleteAccount;
 
 import cleanTest.TestBaseTickTick;
 import io.qameta.allure.*;
